@@ -1,0 +1,113 @@
+body {
+    margin: 0; /* Standardmäßigen Seitenrand entfernen */
+    overflow: hidden; /* Verhindert das Scrollen des gesamten Inhalts */
+}
+
+.main {
+    display: grid;
+    grid-template-rows: auto 40px 1fr; /* Drei Zeilen */
+    gap: 10px; /* Abstand zwischen den Zeilen */
+    position: relative;
+    overflow-y: auto; /* Erlaubt das Scrollen des gesamten Inhalts */
+}
+
+#Willkommen {
+    text-align: center;
+}
+
+#map-container {
+    grid-row: 3;
+    height: 100vh;
+    position: relative;
+}
+
+#links-container {
+    position: absolute;
+    left: -300px; /* Startposition außerhalb des Bildschirms */
+    top: 0;
+    height: 100vh; /* Füllt die gesamte Bildschirmhöhe */
+    width: 250px;
+    background-color: #333; /* Hintergrundfarbe des Menüs */
+    z-index: 10000;
+    overflow-y: auto; /* Erlaubt das Scrollen in der vertikalen Richtung */
+	height: 1000px;
+}
+
+/* Stil für die Links im Menü */
+#links-container a {
+    display: block;
+    padding: 15px;
+    color: #fff;
+    z-index: 8000;
+    text-decoration: none;
+    transition: background-color 0.2s ease; /* Animation beim Hover */
+}
+
+/* Hover-Effekt für die Links */
+#links-container a:hover {
+    background-color: #555;
+}
+
+#links-container a.solved {
+    background-color: #0c8f00;
+}
+
+#links-container a.unlocked {
+    background-color: #ff0000;
+}
+
+/* Stil für den Button zum Öffnen des Menüs */
+#menu-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 24px;
+}
+
+#menu {
+    display: block;
+    position: absolute;
+    z-index: 999;
+    background-color: #000000;
+}
+
+.connection-line {
+    stroke: blue;
+    stroke-width: 2;
+}
+
+.leaflet-layer,
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.leaflet-control-attribution {
+    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+#reload-button {
+    grid-row: 2;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+#reload-button img {
+    width: 20px;
+    height: 20px;
+}
+
+#menu-togglea {
+    font-size: 2em;
+    cursor: pointer;
+}
+
+#menu-toggleb {
+    font-size: 2em;
+    cursor: pointer;
+}

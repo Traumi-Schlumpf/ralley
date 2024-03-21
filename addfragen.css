@@ -1,0 +1,68 @@
+.layout {
+    background-color: black;
+    border-width: 10px;
+    border: solid 3px #6b6b6b;
+    width: 40%;
+    padding: 20px;
+    padding-top: 20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+#frage,
+#antwort {
+    background-color: rgb(39, 39, 39);
+    border-color: rgb(82, 82, 82);
+}
+
+#erstellen {
+    background-color: rgb(39, 39, 39);
+    border-color: rgb(82, 82, 82);
+    color: #807f7f;
+}
+
+#frage,
+#antwort {
+    width: 20%;
+}
+
+.fragentabelle{
+    background-color:black;
+    border-width:10px;
+    border: solid 3px #525252;
+    width:40%;
+    padding:20px;
+    padding-top:20px;
+    top:110%;
+    border-radius:10px;
+    font-size:20px;
+    position:absolute;
+    left:50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.fragentabelle table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.fragentabelle th,
+.fragentabelle td {
+    border: 0.5px solid #2e2e2e;
+    padding: 8px;
+    text-align: left;
+}
+
+.fragentabelle th {
+    background-color: #3f3f3f;
+    color: white;
+}
