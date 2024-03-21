@@ -35,7 +35,7 @@ httpsredirect();
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
         
-        var map = L.map('map-container').setView([52.4550, 13.5747], 15); // K�penick, Berlin
+        var map = L.map('map-container').setView([52.4440, 13.5850], 15); // K�penick, Berlin
         var userLocation;
         var customMarkers = [];
 
