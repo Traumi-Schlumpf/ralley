@@ -11,7 +11,7 @@ if(isset($_POST['stationname'])){
         }
         sqlbefehl($conn, "INSERT INTO `stations` (`ID`, `Name`, `N-Koordinate`, `O-Koordinate`) VALUES (NULL, $stationname, $ncord, $ocord);");
     }else{
-        echo("Der Stationsname ist nicht erlaubt bitte wählen einen anderen.");
+        echo("Der Stationsname ist nicht erlaubt bitte w&auml;hlen einen anderen.");
     }
 }
 ?>
@@ -41,7 +41,7 @@ if(isset($_POST['stationname'])){
                 <label for="ocord">O-Koordinate:</label>
                 <input id="ocord" name="ocord" step="0.001"  placeholder=13.588 required></input> 
                 
-                <p class="hinweis">HINWEIS: Die Koordinaten stehen im Dezimalgradformat(WGS-84) und werden per Punkt getrennt(siehe Beispiel)</p>
+                <p class="hinweis">HINWEIS: Die Koordinaten stehen im Dezimalgradformat(WGS-84) und werden per Punkt getrennt (siehe Beispiel)</p>
                 </br></br>
 
                 <button style="font-size:20px;" id='erstellen' type="submit" value="Submit" submit-btn >Erstellen</button></br></br>

@@ -35,7 +35,7 @@ httpsredirect();
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
         
-        var map = L.map('map-container').setView([52.4440, 13.5850], 15); // K�penick, Berlin
+        var map = L.map('map-container').setView([52.4440, 13.5850], 15); // Köpenick, Berlin
         var userLocation;
         var customMarkers = [];
 
@@ -69,7 +69,7 @@ httpsredirect();
                 radius: 25
             }).addTo(map);
 
-   // Begrenzen Sie die Pan- und Zoomm&ouml;glichkeiten auf den Bereich von K&ouml;penick
+   // Begrenzt die Pan- und Zoommöglichkeiten auf den Bereich von Köpenick
             var southWest = L.latLng(52.42, 13.53);
             var northEast = L.latLng(52.49, 13.66);
             var bounds = L.latLngBounds(southWest, northEast);
@@ -110,7 +110,7 @@ httpsredirect();
 
                 customMarkers.push(customMarker);
 
-                // Verbindungen hinzuf&uuml;gen (au&szlig;er f&uuml;r den letzten Punkt)
+                // Verbindungen hinzufügen (außer für den letzten Punkt)
                 if (index < points.length - 1) {
                     var connection = [
                         [point.lat, point.lon],
@@ -120,21 +120,21 @@ httpsredirect();
                     var line = L.polyline(connection, { color: 'blue' }).addTo(map);
                 }
 
-                // Erstellen Sie einen Link f&uuml;r jeden Punkt
+                // Erstellt einen Link für jeden Punkt
                 var linkContainer = document.getElementById('links-container');
                 var pointLink = document.createElement('a');
                 pointLink.href = '#';
                 pointLink.className = 'point-link' + point.status;
                 pointLink.innerHTML = point.label + "</br>";
 
-                // &uuml;berpr&uuml;fen Sie den Status und aktualisieren Sie den Link entsprechend
+                // Überprüft den Status und aktualisiert den Link entsprechend
                 updateLinkStatus(point, pointLink);
 
-                // F�gen Sie den Link zum Container hinzu
+                // Fügt den Link zum Container hinzu
                 linkContainer.appendChild(pointLink);
             });
 
-            // &uuml;berwachen Sie die Bewegung des Benutzers, um die Links zu aktualisieren
+            // Überwacht die Bewegung des Benutzers, um die Links zu aktualisieren
             map.on('move', function () {
                 points.forEach(function (point, index) {
                     var pointLink = document.querySelector('.point-link:nth-child(' + (index + 1) + ')');
@@ -181,7 +181,7 @@ httpsredirect();
                     }
                 link.addEventListener('click', function () {
                     //alert('Link zu ' + point.label + ' wurde geklickt!');
-                    // Hier weitere Aktionen ausf&uuml;hren, wenn der Link geklickt wird
+                    // Aktionen ausführen, wenn der Link geklickt wird
                     point.status = 'solved';
                     var marker = customMarkers.find(function (marker) {
                         return marker.getLatLng().lat === point.lat && marker.getLatLng().lng === point.lon;
@@ -207,15 +207,13 @@ httpsredirect();
 
         
 
-        // Function to update the user's location in the interface and backend system
+        //Nutzerposition updaten
         function updateUserLocation(position) {
             userLocation = L.latLng(position.coords.latitude, position.coords.longitude);
-            // Update the user's location in the app's interface and backend system here
-            // For example:
-               userMarker.setLatLng(userLocation); // Assuming userMarker is the marker representing the user's location
+               userMarker.setLatLng(userLocation);
         }
 
-        // Error handling for location services being disabled or unavailable
+        //Fehlermeldungen bei Problemen mit der Karte
         function handleLocationError(error) {
             switch(error.code) {
                 case error.PERMISSION_DENIED:

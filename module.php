@@ -1,10 +1,10 @@
 <?php
 session_start();
 function dbconnect(){
-        define('host','');
-        define('user','');
-        define('pass','');
-        define('db','');
+        define('host','10.35.233.19:3306');
+        define('user','k231489_admin');
+        define('pass','%_+XSSN>%b5q8h!');
+        define('db','k231489_Ralley');
         $conn = mysqli_connect(host, user, pass, db);
         if (!$conn){
             die("Connection failed: ". mysqli_connect_error());
@@ -25,7 +25,7 @@ function dbconnect(){
     }
 
     function createtable($conn, $tablename){
-        //erstellt eine tabelle wenn diese noch nicht existiert
+        //Erstellt eine tabelle wenn diese noch nicht existiert
         if($tablename=="stations"){
             if(!checktableexistence($conn, "stations")){
                 sqlbefehl($conn, "
@@ -176,11 +176,11 @@ function dbconnect(){
         $result = sqlbefehl($conn, $sql);
         
         if ($result->num_rows > 0) {
-            // Holen Sie sich den Namen
+            // Holt sich den Namen
             $row = $result->fetch_assoc();
             $name = $row['Name'];
             $name = str_replace(array('ä', 'ö', 'ü', 'ß'), array('ae', 'oe', 'ue', 'ss'), $name);
-            // Ersetzen Sie alle Zeichen, die nicht für einen SQL-Tabellennamen zulässig sind
+            // Ersetzt alle Zeichen, die nicht für einen SQL-Tabellennamen zulässig sind
             $name = preg_replace('/[^A-Za-z0-9\_]/', '', $name);
             
             return $name;

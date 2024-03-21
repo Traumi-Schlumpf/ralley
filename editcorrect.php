@@ -1,12 +1,12 @@
 <?php
 include("module.php");
 if (!empty($_GET)) {
-    echo "Übertragene Daten über die GET-Methode:\n";
+    echo "&uuml;bertragene Daten über die GET-Methode:\n";
     foreach ($_GET as $key => $value) {
         echo "$key: $value\n";
     }
 } else {
-    echo "Keine übertragenen Daten über die GET-Methode gefunden.";
+    echo "Keine &uuml;bertragenen Daten über die GET-Methode gefunden.";
 }
 
 $conn = dbconnect();
@@ -18,7 +18,7 @@ if(isset($_GET["id"])){
 }
 echo "
 <script>
-alert('Erfolgreich geändert!');
+alert('Erfolgreich ge&auml;ndert!');
 location.href = 'https://xn--kpenickralley-imb.de/korrektur.php';
 </script>
 ";
