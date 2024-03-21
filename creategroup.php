@@ -13,7 +13,7 @@ if(isset($_POST['groupname'])){
         $username = $_POST['groupname'];
         sqlbefehl($conn, "INSERT INTO `Gruppen` (`ID`, `Gruppenname`, `Passwort`) VALUES (NULL, $groupname, $passwordhash);");
     }else{
-        echo("Der Gruppenname ist nicht erlaubt bitte wählen einen anderen.");
+        echo("Der Gruppenname ist nicht erlaubt bitte w&auml;hlen einen anderen.");
     }
     aktualisiereIds($conn, "Gruppen");
 }

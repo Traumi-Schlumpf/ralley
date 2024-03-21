@@ -1,6 +1,5 @@
 <?php
 include('module.php');
-// Erstellen Sie eine Verbindung
 ?>
 <!DOCTYPE html>
 <html lang="de">
