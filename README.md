@@ -8,7 +8,7 @@ Aktuelle Features sind:
 
 WICHTIG:
 
-Als Stationsname dürfen weder Und-Zeichen(&), noch Semikolons (;) oder Anführungszeichen jeglicher Art (' ") verwendet werden.
+Als Stationsname dürfen weder Und-Zeichen(&), noch Semikolons (;) oder Anführungszeichen jeglicher Art (' ") verwendet werden. Sie dürfen auch nicht nur aus Zahlen bestehen.
 
 ENGLISH
 
@@ -22,4 +22,4 @@ Current features are:
 
 IMPORTANT:
 
-Neither ampersands (&), semicolons (;) nor inverted commas of any kind (' ") may be used as station names.
+Neither ampersands (&), semicolons (;) nor inverted commas of any kind (' ") may be used as station names. They may also not consist of numbers only.
