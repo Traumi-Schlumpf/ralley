@@ -10,6 +10,8 @@ WICHTIG:
 
 Als Stationsname dürfen weder Und-Zeichen(&), noch Semikolons (;) oder Anführungszeichen jeglicher Art (' ") verwendet werden. Sie dürfen auch nicht nur aus Zahlen bestehen.
 
+Das Abbild der Ralley (etwa einen Commit vorraus) ist unter köpenickralley.de oder learnforschool.de/Ralley/Koepenick.php (einige Commits zurück) zu finden.
+
 ENGLISH
 
 This repository serves to digitise the long-established Köpenick Rally. Two Year 9 pupils, Konstantin (Traumi) and Jacob (welli), used the social commitment on Emmy Day 2024 to programme an initial draft. Since then, the project has been continuously expanded. Future features will include multiple choice tasks or other innovative task formats such as uploading pictures of a specific location. 
@@ -23,3 +25,5 @@ Current features are:
 IMPORTANT:
 
 Neither ampersands (&), semicolons (;) nor inverted commas of any kind (' ") may be used as station names. They may also not consist of numbers only.
+
+The image of the rally (about one commit ahead) can be found at köpenickralley.de or learnforschool.de/Ralley/Koepenick.php (a few commits back).
