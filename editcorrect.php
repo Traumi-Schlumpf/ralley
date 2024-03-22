@@ -18,7 +18,7 @@ if(isset($_GET["id"])){
 }
 echo "
 <script>
-alert('Erfolgreich ge&auml;ndert!');
+alert('Erfolgreich geändert!');
 location.href = 'https://xn--kpenickralley-imb.de/korrektur.php';
 </script>
 ";

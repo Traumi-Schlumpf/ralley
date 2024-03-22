@@ -168,7 +168,11 @@ function dbconnect(){
         return $string;
     }
   
-  
+    function removeleerzeichen($string){
+        $string = str_replace(array(' '), '', $string);
+        return $string;
+    }
+
     function getstationtablename($conn, $id){
         $sql = "SELECT Name FROM stations WHERE ID = $id";
     
