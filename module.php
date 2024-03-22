@@ -173,6 +173,27 @@ function dbconnect(){
         return $string;
     }
 
+    function removetagsbyuml($string) {
+        $string = str_replace(array('&ouml;'), 'ouml', $string);
+        $string = str_replace(array('&auml'), 'auml', $string);
+        $string = str_replace(array('&uuml;'), 'uuml', $string);
+        $string = str_replace(array('&szlig;'), 'szlig', $string);
+        return $string;
+    }
+
+    function reformateuml($string){
+        $string = str_replace(array('&'), '&amp;', $string);
+
+        return $string;
+    }
+
+    function replaceandandsilicon($string){
+        $string = str_replace(array('&'), '%26', $string);
+        $string = str_replace(array(';'), '%3B', $string);
+
+        return $string;
+    }
+
     function getstationtablename($conn, $id){
         $sql = "SELECT Name FROM stations WHERE ID = $id";
     
