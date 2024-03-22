@@ -23,16 +23,17 @@ if(isset($_GET['fragenid'])){
 }
 
 $stationname = removesqlinjection($_GET['stationname']);
+
 $stationid = sqlbefehl($conn, "SELECT * FROM stations WHERE Name = '$stationname'");
 $stationid = $stationid->fetch_assoc()["ID"];
-if(checktableexistence($conn, $stationname)){
-    $frage = sqlbefehl($conn, "SELECT * FROM $stationname WHERE ID = $fragenid");
+if(checktableexistence($conn, removeleerzeichen($stationname))){
+    $frage = sqlbefehl($conn, "SELECT * FROM ". removeleerzeichen($stationname). " WHERE ID = $fragenid");
     $frage = $frage->fetch_assoc()["Frage"];
 }else{
     $frage = "ERROR #404 NOT FOUND";
 }
 if(isset($_GET['antwort'])){
-    if(checktableexistence($conn, $stationname)){
+    if(checktableexistence($conn, removeleerzeichen($stationname))){
         if(angemeldet($conn)){
             createtable($conn, "Antworten");
             $groupname = $_SESSION['gruppenname'];
@@ -78,8 +79,8 @@ if(isset($_GET['antwort'])){
                 <div class="progressbar">';
                     echo '<a class="home leftbar" href="https://köpenickralley.de">&#x2302; Home</a>';
                     $fragenid=$fragenid+1;
-                    if(checktableexistence($conn, $_GET['stationname'])){
-                        $result = sqlbefehl($conn, "SELECT ID FROM ". $_GET['stationname']);
+                    if(checktableexistence($conn, removeleerzeichen($stationname))){
+                        $result = sqlbefehl($conn, "SELECT ID FROM ". removeleerzeichen($stationname));
                         if ($result->num_rows > 0) {
                             $rows = $result->fetch_all(MYSQLI_ASSOC);
                             foreach ($rows as $index => $row) {

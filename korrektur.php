@@ -29,8 +29,8 @@ include('module.php');
         foreach ($conn->query($sql) as $antwortentable) {
             $stationtable = $antwortentable["Station"];
             $idfrage = $antwortentable["IDFrage"];
-            if(checktableexistence($conn, $stationtable)){
-                $erg = sqlbefehl($conn, "SELECT * FROM $stationtable WHERE ID = $idfrage");
+            if(checktableexistence($conn, removeleerzeichen($stationtable))){
+                $erg = sqlbefehl($conn, "SELECT * FROM ". removeleerzeichen($stationtable). " WHERE ID = $idfrage");
                 if($erg->num_rows){
                     $stationtable = $erg -> fetch_assoc();          
                 echo '<tr>';
