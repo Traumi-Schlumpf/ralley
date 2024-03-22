@@ -37,7 +37,11 @@ if(isset($_GET['antwort'])){
         if(checktableexistence($conn, removetagsbyuml(removeleerzeichen($stationname)))){
             if(angemeldet($conn)){
                 createtable($conn, "Antworten");
-                $groupname = $_SESSION['gruppenname'];
+                if(isset($_SESSION['gruppenname'])){
+                    $groupname = $_SESSION['gruppenname'];
+                }else {
+                    $groupname = "Error #401";
+                }
                 $antwort = removesqlinjection($_GET['antwort']);
                 $fragenid=$fragenid-1;
             
