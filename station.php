@@ -33,32 +33,34 @@ if(checktableexistence($conn, removetagsbyuml(removeleerzeichen($stationname))))
     $frage = "ERROR #404 NOT FOUND";
 }
 if(isset($_GET['antwort'])){
-    if(checktableexistence($conn, removetagsbyuml(removeleerzeichen($stationname)))){
-        if(angemeldet($conn)){
-            createtable($conn, "Antworten");
-            $groupname = $_SESSION['gruppenname'];
-            $antwort = removesqlinjection($_GET['antwort']);
-            $fragenid=$fragenid-1;
-
-            //sqlbefehl($conn, "INSERT INTO `Antworten` (`ID`, `Gruppe`, `Station`, `IDFrage`, `Antwort`, `Korrektur`, `Punkte`) Values (NULL, '$groupname', '$stationname', $fragenid-1, '$antwort', 'Ausstehend', 0);");
+    if($_GET['antwort'] != ""){
+        if(checktableexistence($conn, removetagsbyuml(removeleerzeichen($stationname)))){
+            if(angemeldet($conn)){
+                createtable($conn, "Antworten");
+                $groupname = $_SESSION['gruppenname'];
+                $antwort = removesqlinjection($_GET['antwort']);
+                $fragenid=$fragenid-1;
             
-
-            $sql = "SELECT COUNT(*) AS count FROM Antworten WHERE Gruppe = '$groupname' AND Station = '$stationname' AND IDFrage = $fragenid";
-            $result = mysqli_query($conn, $sql);
-            $row = mysqli_fetch_assoc($result);
-            $count = $row['count'];
-
-            if ($count > 0) {
-                // Eintrag aktualisieren
-                $updateSql = "UPDATE Antworten SET Antwort = '$antwort', Korrektur = 'Ausstehend', Punkte = -1 WHERE Gruppe = '$groupname' AND Station = '$stationname' AND IDFrage = $fragenid";
-                mysqli_query($conn, $updateSql);
-            } else {
-                // Neuen Eintrag hinzufügen
-                $insertSql = "INSERT INTO Antworten (Gruppe, Station, IDFrage, Antwort, Korrektur, Punkte) VALUES ('$groupname', '$stationname', $fragenid, '$antwort', 'Ausstehend', -1)";
-                mysqli_query($conn, $insertSql);
+                //sqlbefehl($conn, "INSERT INTO `Antworten` (`ID`, `Gruppe`, `Station`, `IDFrage`, `Antwort`, `Korrektur`, `Punkte`) Values (NULL, '$groupname', '$stationname', $fragenid-1, '$antwort', 'Ausstehend', 0);");
+                
+            
+                $sql = "SELECT COUNT(*) AS count FROM Antworten WHERE Gruppe = '$groupname' AND Station = '$stationname' AND IDFrage = $fragenid";
+                $result = mysqli_query($conn, $sql);
+                $row = mysqli_fetch_assoc($result);
+                $count = $row['count'];
+            
+                if ($count > 0) {
+                    // Eintrag aktualisieren
+                    $updateSql = "UPDATE Antworten SET Antwort = '$antwort', Korrektur = 'Ausstehend', Punkte = -1 WHERE Gruppe = '$groupname' AND Station = '$stationname' AND IDFrage = $fragenid";
+                    mysqli_query($conn, $updateSql);
+                } else {
+                    // Neuen Eintrag hinzufügen
+                    $insertSql = "INSERT INTO Antworten (Gruppe, Station, IDFrage, Antwort, Korrektur, Punkte) VALUES ('$groupname', '$stationname', $fragenid, '$antwort', 'Ausstehend', -1)";
+                    mysqli_query($conn, $insertSql);
+                }
+                aktualisiereIds($conn, "Antworten");
+                $fragenid=$fragenid+1;
             }
-            aktualisiereIds($conn, "Antworten");
-            $fragenid=$fragenid+1;
         }
     }
 }
