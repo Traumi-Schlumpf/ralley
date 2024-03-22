@@ -105,9 +105,13 @@ body {
 #menu-togglea {
     font-size: 2em;
     cursor: pointer;
+    margin-left: 10px;
+    margin-top: 5px;
 }
 
 #menu-toggleb {
     font-size: 2em;
     cursor: pointer;
+    margin-left: 10px;
+    margin-top: 5px;
 }
