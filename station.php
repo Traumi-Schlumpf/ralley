@@ -26,14 +26,14 @@ $stationname = removesqlinjection($_GET['stationname']);
 
 $stationid = sqlbefehl($conn, "SELECT * FROM stations WHERE Name = '$stationname'");
 $stationid = $stationid->fetch_assoc()["ID"];
-if(checktableexistence($conn, removeleerzeichen($stationname))){
-    $frage = sqlbefehl($conn, "SELECT * FROM ". removeleerzeichen($stationname). " WHERE ID = $fragenid");
+if(checktableexistence($conn, removetagsbyuml(removeleerzeichen($stationname)))){
+    $frage = sqlbefehl($conn, "SELECT * FROM ". removetagsbyuml(removeleerzeichen($stationname)). " WHERE ID = $fragenid");
     $frage = $frage->fetch_assoc()["Frage"];
 }else{
     $frage = "ERROR #404 NOT FOUND";
 }
 if(isset($_GET['antwort'])){
-    if(checktableexistence($conn, removeleerzeichen($stationname))){
+    if(checktableexistence($conn, removetagsbyuml(removeleerzeichen($stationname)))){
         if(angemeldet($conn)){
             createtable($conn, "Antworten");
             $groupname = $_SESSION['gruppenname'];
@@ -79,8 +79,9 @@ if(isset($_GET['antwort'])){
                 <div class="progressbar">';
                     echo '<a class="home leftbar" href="https://köpenickralley.de">&#x2302; Home</a>';
                     $fragenid=$fragenid+1;
-                    if(checktableexistence($conn, removeleerzeichen($stationname))){
-                        $result = sqlbefehl($conn, "SELECT ID FROM ". removeleerzeichen($stationname));
+                    
+                    if(checktableexistence($conn, removetagsbyuml(removeleerzeichen($stationname)))){
+                        $result = sqlbefehl($conn, "SELECT ID FROM ". removetagsbyuml(removeleerzeichen($stationname)));
                         if ($result->num_rows > 0) {
                             $rows = $result->fetch_all(MYSQLI_ASSOC);
                             foreach ($rows as $index => $row) {
@@ -88,12 +89,12 @@ if(isset($_GET['antwort'])){
                                 $class = ($index === 0) ? 'middlebar' : (($index === count($rows) - 1) ? 'rightbar' : 'middlebar');
                                 
                                 if($entry_id==$fragenid-1){
-                                    echo '<a class="'. $class.' skip" href="'."https://xn--kpenickralley-imb.de/station.php?stationname=$stationname&fragenid=$fragenid".'">&#9193;</a>';
+                                    echo '<a class="'. $class.' skip" href="'."https://xn--kpenickralley-imb.de/station.php?stationname=". replaceandandsilicon(removesqlinjection($stationname)). "&fragenid=$fragenid".'">&#9193;</a>';
                                 }
                                 elseif(hasfinishedquestion($conn, $groupname, $entry_id, $stationname)){
-                                    echo "<a class='$class finished 'href='https://xn--kpenickralley-imb.de/station.php?stationname=$stationname&fragenid=$entry_id'>$entry_id </a>";
+                                    echo "<a class='$class finished 'href='https://xn--kpenickralley-imb.de/station.php?stationname=". replaceandandsilicon(removesqlinjection($stationname)). "&fragenid=$entry_id'>$entry_id </a>";
                                 }else{
-                                    echo "<a class='$class pending'href='https://xn--kpenickralley-imb.de/station.php?stationname=$stationname&fragenid=$entry_id'>$entry_id </a>";
+                                    echo "<a class='$class pending'href='https://xn--kpenickralley-imb.de/station.php?stationname=". replaceandandsilicon(removesqlinjection($stationname)). "&fragenid=$entry_id'>$entry_id </a>";
                                 }
                             
                             }
@@ -115,7 +116,7 @@ if(isset($_GET['antwort'])){
                     <div class="antwort">
                         <label for="antwort"></label>
                         <form action="station.php" method="get">
-                            <input type="hidden" name="stationname" id="stationname" value="'. removesqlinjection($_GET['stationname']). '"></input>
+                            <input type="hidden" name="stationname" id="stationname" value="'. reformateuml(removesqlinjection($_GET['stationname'])). '"></input>
                             <input type="hidden" name="fragenid" id="fragenid" value="'. ($fragenid+1).'"></input>
                             <input type="text" id="antwort" name="antwort" placeholder="Antwort"><button type="submit">&#8594;</button></input>
                         </form>
