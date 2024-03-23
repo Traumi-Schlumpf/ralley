@@ -12,7 +12,7 @@ Als Stationsname dürfen weder Und-Zeichen(&), noch Semikolons (;) oder Anführu
 
 ENGLISH
 
-This repository serves to digitise the long-established Köpenick Rally. Two Year 9 pupils, Konstantin (Traumi) and Jacob (welli), used the social commitment on Emmy Day 2024 to programme an initial draft. Since then, the project has been continuously expanded. Future features will include multiple choice tasks or other innovative task formats such as uploading pictures of a specific location. 
+This repository serves to digitise the long-established Köpenick Rally. Two grade 9 students, Konstantin (Traumi) and Jacob (welli), used the social commitment on Emmy Day 2024 to programme an initial draft. Since then, the project has been continuously expanded. Future features will include multiple choice tasks or other innovative task formats such as uploading pictures of a specific location. 
 Current features are: 
 - 100% database-driven.
 - Groups, stations and tasks can be created via pages.
