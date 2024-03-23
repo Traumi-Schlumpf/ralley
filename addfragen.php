@@ -17,7 +17,7 @@ if($tablename==false){
         foreach ($_POST as $key => $value) {
             ${$key} = "'". removesqlinjection($value). "'";
         }
-        sqlbefehl($conn, "INSERT INTO `$tablename` (`ID`, `Frage`, `Antwort`, `Punkte`) VALUES (NULL, $frage, $antwort, $punkte);");
+        sqlbefehl($conn, "INSERT INTO `$tablename` (`ID`, `Frage`, `Antwort`, `Punkte`, `Fragentyp`) VALUES (NULL, $frage, $antwort, $punkte, $fragentyp);");
         aktualisiereIds($conn, $tablename);
     }
 }
@@ -54,6 +54,13 @@ aktualisiereIds($conn, $tablename);
                         </br></br></br>
                         <label for="antwort"> Antwort: </label>
                         <input id="antwort" name="antwort" placeholder="53" value="" type="text" required></input> 
+                        </br></br></br>
+                        <label for="fragentyp"> Fragentyp</label>
+                        <select name="fragentyp" id="fragentyp">
+                            <option value="frage"> Frage </option>
+                            <option value="multiplechoice"> multiplechoice </option>
+                            <option value="bild"> Bildupload </option>
+                        </select>
                         </br></br></br>
                         <label for="punkte"> Maximal zu erreichende Punkte: </label>
                         <input id="punkte" name="punkte" placeholder="1" value="1" type="int" required></input> 

@@ -80,6 +80,7 @@ function dbconnect(){
                     `Frage` text COLLATE utf8mb4_general_ci NOT NULL,
                     `Antwort` text COLLATE utf8mb4_general_ci NOT NULL,
                     `Punkte` int NOT NULL,
+                    `Fragentyp` text COLLATE utf8mb4_general_ci NOT NULL,
                     PRIMARY KEY (ID),
                     UNIQUE (ID)
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;";
@@ -330,4 +331,36 @@ function dbconnect(){
             return "Antwort";
         }
     }
+
+    function autocorrect($conn){
+        $sql = 'SELECT * FROM Antworten';
+        foreach ($conn->query($sql) as $antwortentable) {
+            $stationtable = $antwortentable["Station"];
+            $idfrage = $antwortentable["IDFrage"];
+            if(checktableexistence($conn, removetagsbyuml(removeleerzeichen($stationtable)))){
+                $erg = sqlbefehl($conn, "SELECT * FROM ". removetagsbyuml(removeleerzeichen($stationtable)). " WHERE ID = $idfrage");
+                if($erg->num_rows){
+                    $stationtable = $erg -> fetch_assoc();  
+                    if($stationtable["Fragentyp"] == "frage"){
+                        $musterantwortdb = $stationtable["Antwort"];
+                        $musterantwortspilt = explode(" *oder* ", $musterantwortdb);
+                        $antwort = $antwortentable["Antwort"];
+                        if (in_array($antwort, $musterantwortspilt)) {
+                            if(isset($_SESSION['gruppenname'])){
+                                $groupname = $_SESSION['gruppenname'];
+                            }else {
+                                $groupname = "Error #401";
+                            }
+                            $antwortid = $antwortentable["ID"];
+                            $stationname = $antwortentable["Station"];
+                            $maxpunkte = $stationtable["Punkte"];
+                            $updateSql = "UPDATE Antworten SET Korrektur = 'Automatisch erfolgt', Punkte = $maxpunkte WHERE Gruppe = '$groupname' AND Station = '$stationname' AND ID = $antwortid";
+                            sqlbefehl($conn, $updateSql);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
 ?>

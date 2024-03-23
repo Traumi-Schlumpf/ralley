@@ -64,6 +64,7 @@ if(isset($_GET['antwort'])){
                 }
                 aktualisiereIds($conn, "Antworten");
                 $fragenid=$fragenid+1;
+                autocorrect($conn);
             }
         }
     }
