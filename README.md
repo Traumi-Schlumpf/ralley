@@ -6,6 +6,8 @@ Aktuelle Features sind:
 - Karte und Sidebar zur Auswahl von Aufgaben in der Nähe (innerhalb eines Radius von 75 Metern) am eigenen Standort.
 - Antwortseite zur Beantwortung der Fragen
 
+Es gibt eine automatische Auswertung. Dazu kann bei der Musterlösung Antwortmöglichkeit1 *oder* Antwortmöglichkeit2 *oder* ... angegeben werden. So können der automatischen Korrekturhilfe mehrere Antwortmöglichkeiten angeboten werden.
+
 WICHTIG:
 
 Als Stationsname dürfen weder Und-Zeichen(&), noch Semikolons (;) oder Anführungszeichen jeglicher Art (' ") verwendet werden.
@@ -19,6 +21,8 @@ Current features are:
 - There is also a correction page.
 - Map and sidebar to select nearby tasks (within a radius of 75 metres) at your own location.
 - Answer page to answer the questions
+
+There is an automatic evaluation. For this purpose, answer option1 *oder* answer option2 *oder* ... can be specified. In this way, the automatic correction aid can be offered several possible answers.
 
 IMPORTANT:
 
