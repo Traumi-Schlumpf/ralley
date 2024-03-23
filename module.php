@@ -48,6 +48,7 @@ function dbconnect(){
                     ID int NOT NULL AUTO_INCREMENT,
                     `Gruppenname` text COLLATE utf8mb4_general_ci NOT NULL,
                     `Passwort` text COLLATE utf8mb4_general_ci NOT NULL,
+                    `Rolle` text COLLATE utf8mb4_general_ci NOT NULL,
                     PRIMARY KEY (ID),
                     UNIQUE (ID)
                     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;"
@@ -285,7 +286,12 @@ function dbconnect(){
             $passwort = removesqlinjection($_SESSION['Passwort']);
             $sql = sqlbefehl($conn, "SELECT * FROM Gruppen WHERE Gruppenname='$gruppenname' AND ID='$id' AND Passwort='$passwort'");
             if(mysqli_num_rows($sql) > 0){
-                return true;
+                $sql = sqlbefehl($conn, "SELECT Rolle FROM Gruppen WHERE Gruppenname='$gruppenname' AND ID='$id' AND Passwort='$passwort'");
+                if($row = mysqli_fetch_assoc($sql)){
+                    return $row['Rolle'];
+                }else{
+                    return false;
+                }
             }else{
                 return false;
             }
@@ -305,6 +311,7 @@ function dbconnect(){
             echo '        <input type="text" name="gruppenname" placeholder="Katzen" required></br>';
             echo '        <input type="password" name="passwort" placeholder="" required></br></br>';
             echo '        <input type="submit" value="Anmelden">';
+            echo '        <p> Du hast keinen account? Rede bitte mit einem Moderator!</p>';
             echo '      </form>';
             echo '  </div>';
             echo '</div>';

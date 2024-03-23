@@ -25,6 +25,13 @@ include('module.php');
         </tr>
         <?php
         $conn = dbconnect();
+        loginmaske($conn);
+        anmelden($conn);
+        if(angemeldet($conn) != "Admin" && angemeldet($conn) != "Moderator"){
+            $redirect_page = 'https://xn--kpenickralley-imb.de/creategroup.php';
+            header('Location:'  .$redirect_page);
+            die();
+        }
         $sql = 'SELECT * FROM Antworten';
         foreach ($conn->query($sql) as $antwortentable) {
             $stationtable = $antwortentable["Station"];

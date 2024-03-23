@@ -4,6 +4,12 @@ $conn = dbconnect();
 createtable($conn, "stations");
 aktualisiereIds($conn, "stations");
 
+if(angemeldet($conn) != "Admin" && angemeldet($conn) != "Moderator"){
+    $redirect_page = 'https://xn--kpenickralley-imb.de/creategroup.php';
+    header('Location:'  .$redirect_page);
+    die();
+}
+
 if(isset($_POST['stationname'])){
     if($_POST['stationname']!="stations"){
         foreach ($_POST as $key => $value) {

@@ -8,9 +8,7 @@ Aktuelle Features sind:
 
 WICHTIG:
 
-Als Stationsname dürfen weder Und-Zeichen(&), noch Semikolons (;) oder Anführungszeichen jeglicher Art (' ") verwendet werden. Sie dürfen auch nicht nur aus Zahlen bestehen.
-
-Das Abbild der Ralley (etwa einen Commit vorraus) ist unter köpenickralley.de oder learnforschool.de/Ralley/Koepenick.php (einige Commits zurück) zu finden.
+Als Stationsname dürfen weder Und-Zeichen(&), noch Semikolons (;) oder Anführungszeichen jeglicher Art (' ") verwendet werden.
 
 ENGLISH
 
@@ -24,6 +22,4 @@ Current features are:
 
 IMPORTANT:
 
-Neither ampersands (&), semicolons (;) nor inverted commas of any kind (' ") may be used as station names. They may also not consist of numbers only.
-
-The image of the rally (about one commit ahead) can be found at köpenickralley.de or learnforschool.de/Ralley/Koepenick.php (a few commits back).
+Neither ampersands (&), semicolons (;) nor inverted commas of any kind (' ") may be used as station names.
