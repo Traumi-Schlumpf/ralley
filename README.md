@@ -6,7 +6,7 @@ Aktuelle Features sind:
 - Karte und Sidebar zur Auswahl von Aufgaben in der Nähe (innerhalb eines Radius von 75 Metern) am eigenen Standort.
 - Antwortseite zur Beantwortung der Fragen
 
-Es gibt eine automatische Auswertung. Dazu kann bei der Musterlösung Antwortmöglichkeit1 (*)oder(*) Antwortmöglichkeit2 (*)oder(*) ... angegeben werden. Verwenden Sie dies ohne die Klammern, ich musste sie dort einfügen, weil Github den Text sonst falsch formatiert hätte. So können der automatischen Korrekturhilfe mehrere Antwortmöglichkeiten angeboten werden.
+Es gibt eine automatische Auswertung. Dazu kann bei der Musterlösung Antwortmöglichkeit1 (*)oder(*) Antwortmöglichkeit2 (*)oder(*) ... angegeben werden. Verwenden Sie anstelle der Klammern einen Stern. So können der automatischen Korrekturhilfe mehrere Antwortmöglichkeiten angeboten werden.
 
 WICHTIG:
 
@@ -22,7 +22,7 @@ Current features are:
 - Map and sidebar to select nearby tasks (within a radius of 75 metres) at your own location.
 - Answer page to answer the questions
 
-There is an automatic evaluation. For this purpose, use at the answeroption option1 (*)oder(*) answer option2 (*)oder(*)... Use this without the brackets, I had to put them there, because Github would have the text malformed otherwise. In this way, the automatic correction aid can be offered several possible answers.
+There is an automatic evaluation. For this purpose, use at the answeroption option1 (*)oder(*) answer option2 (*)oder(*)... Use at the place of the brackets a star. In this way, the automatic correction aid can be offered several possible answers.
 
 IMPORTANT:
 
