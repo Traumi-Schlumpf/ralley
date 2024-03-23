@@ -46,7 +46,7 @@ if(angemeldet($conn) == "Admin" || angemeldet($conn) == "Moderator"){
                                 echo "<td>********</td>";
                             }
                         } else {
-                            echo "<td> Einen Admin kann die Rolle nicht Wieder entzogen werden! Versuchen sie es mit einer Löschung </td>";
+                            echo "<td> Einem Admin kann die Rolle nicht entzogen werden! Versuchen sie es mit einer Löschung </td>";
                         }
                         echo "</tr>";
                     }
@@ -61,7 +61,7 @@ if(angemeldet($conn) == "Admin" || angemeldet($conn) == "Moderator"){
             }
             $stmt->close();
         }else {
-            echo "Dieser User ist für das System zu Wichtig, deswegen ist das nicht möglich";
+            echo "Dieser User ist wichtig für die Funktionalität des Systems. Die Löschung/Rollenänderung ist deshalb nicht möglich!";
         }
     } else {
         echo "GET-Variablen 'tabelle' oder 'id' nicht gesetzt.";

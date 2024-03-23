@@ -57,7 +57,7 @@ include('module.php');
 
 
                         $id = $antwortentable["ID"];
-                        echo '<th> '. "<a href='delete.php?id=$id&tabelle=Antworten&fileid=korrektur'> Löschen</a> <input type='submit' value='ändern'></input>". '</th>';
+                        echo '<th> '. "<a href='delete.php?id=$id&tabelle=Antworten&fileid=korrektur'> Löschen</a> <input type='submit' value='Ändern'></input>". '</th>';
 
                         echo '<input type="hidden" id="id" name="id" value='. $antwortentable["ID"]. '></input>';
 
@@ -69,7 +69,7 @@ include('module.php');
                     echo '<th> '. $antwortentable["Gruppe"].'</th>';
                     echo '<th> '. $antwortentable["Station"].'</th>';
                     echo '<th colspan="6">';
-                        echo 'Hier befindet sich ein Datensatz zu einer nicht vorhandenden Station.... Wir empfehlen eine löschung!';
+                        echo 'Hier befindet sich ein Datensatz zu einer nicht mehr vorhandenden Station. Wir empfehlen eine Löschung!';
                     echo '</th>';
                     $id = $antwortentable["ID"];
                     echo '<th> '. "<a href='delete.php?id=$id&tabelle=Antworten&fileid=korrektur'> Löschen</a>". '</th>';

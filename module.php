@@ -25,7 +25,7 @@ function dbconnect(){
     }
 
     function createtable($conn, $tablename){
-        //Erstellt eine tabelle wenn diese noch nicht existiert
+        //Erstellt eine Tabelle wenn diese noch nicht existiert
         if($tablename=="stations"){
             if(!checktableexistence($conn, "stations")){
                 sqlbefehl($conn, "
