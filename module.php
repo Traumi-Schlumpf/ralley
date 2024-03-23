@@ -1,10 +1,10 @@
 <?php
 session_start();
 function dbconnect(){
-        define('host','10.35.233.19:3306');
-        define('user','k231489_admin');
-        define('pass','%_+XSSN>%b5q8h!');
-        define('db','k231489_Ralley');
+        define('host','');
+        define('user','');
+        define('pass','');
+        define('db','');
         $conn = mysqli_connect(host, user, pass, db);
         if (!$conn){
             die("Connection failed: ". mysqli_connect_error());
@@ -311,7 +311,7 @@ function dbconnect(){
             echo '        <input type="text" name="gruppenname" placeholder="Katzen" required></br>';
             echo '        <input type="password" name="passwort" placeholder="" required></br></br>';
             echo '        <input type="submit" value="Anmelden">';
-            echo '        <p> Du hast keinen account? Rede bitte mit einem Moderator!</p>';
+            echo '        <p> Du hast keinen Account? Melde dich bitte bei einem Moderator!</p>';
             echo '      </form>';
             echo '  </div>';
             echo '</div>';

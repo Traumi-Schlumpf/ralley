@@ -56,7 +56,7 @@ httpsredirect();
                 var watchId = navigator.geolocation.watchPosition(updateUserLocation, handleLocationError, options);
             }
         } else {
-            alert("Geolocation is not supported by this browser.");
+            alert("Geolocation wird von deinem Browser nicht unterstützt. Du kannst von diesem Gerät nicht an der Ralley teilnehmen.");
         }
 
         function showPosition(position) {
