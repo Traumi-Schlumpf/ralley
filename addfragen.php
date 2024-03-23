@@ -11,7 +11,7 @@ if(isset($_GET['stationid'])){
 
 $tablename = getstationtablename($conn, $stationid);
 if($tablename==false){
-    echo "Diese Station existiert nicht wozu sie versuchen eine Frage zu erstellen.";
+    echo "Die Station, zu der du versuchst eine Frage zu erstellen, wurde aus der Datenbank entfernt!";
 }else{
     if(isset($_POST['frage'])){
         foreach ($_POST as $key => $value) {

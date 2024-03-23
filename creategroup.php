@@ -31,7 +31,7 @@ if(isset($_POST['groupname'])){
             }
         }
     }else{
-        echo("Der Gruppenname ist nicht erlaubt bitte w&auml;hlen einen anderen.");
+        echo("Der Gruppenname ist nicht erlaubt bitte wähle einen anderen.");
     }
     aktualisiereIds($conn, "Gruppen");
 }

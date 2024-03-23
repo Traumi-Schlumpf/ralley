@@ -17,7 +17,7 @@ if(isset($_POST['stationname'])){
         }
         sqlbefehl($conn, "INSERT INTO `stations` (`ID`, `Name`, `N-Koordinate`, `O-Koordinate`) VALUES (NULL, $stationname, $ncord, $ocord);");
     }else{
-        echo("Der Stationsname ist nicht erlaubt bitte w&auml;hlen einen anderen.");
+        echo("Der Stationsname ist nicht erlaubt bitte wähle einen anderen.");
     }
 }
 ?>

@@ -23,7 +23,7 @@ httpsredirect();
         <div id="menu-togglea" style="position: absolute;">&#9776;</div>
         <div id="links-container">
             <div id="menu-toggleb">&#9776;</div>
-            <!-- Links werden hier dynamisch hinzugef&uuml;gt -->
+            <!-- Links werden hier dynamisch hinzugefügt -->
         </div>
         <div id="reload-button" onclick="reloadMap()">
             <img src="navigation.png" alt="Reload" />
@@ -61,7 +61,7 @@ httpsredirect();
 
         function showPosition(position) {
             userLocation = L.latLng(position.coords.latitude, position.coords.longitude);
-            // Blauer Kreis f&uuml;r den eigenen Standort
+            // Blauer Kreis für den eigenen Standort
             var userCircle = L.circle(userLocation, {
                 color: 'blue',
                 fillColor: 'lightblue',

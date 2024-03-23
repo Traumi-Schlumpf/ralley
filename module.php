@@ -1,10 +1,10 @@
 <?php
 session_start();
 function dbconnect(){
-        define('host','');
-        define('user','');
-        define('pass','');
-        define('db','');
+        define('host','10.35.233.19:3306');
+        define('user','k231489_admin');
+        define('pass','%_+XSSN>%b5q8h!');
+        define('db','k231489_Ralley');
         $conn = mysqli_connect(host, user, pass, db);
         if (!$conn){
             die("Connection failed: ". mysqli_connect_error());
@@ -25,7 +25,7 @@ function dbconnect(){
     }
 
     function createtable($conn, $tablename){
-        //Erstellt eine tabelle wenn diese noch nicht existiert
+        //Erstellt eine Tabelle wenn diese noch nicht existiert
         if($tablename=="stations"){
             if(!checktableexistence($conn, "stations")){
                 sqlbefehl($conn, "

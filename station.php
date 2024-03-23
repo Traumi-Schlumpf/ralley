@@ -134,7 +134,7 @@ if(isset($_GET['antwort'])){
                     </div>
                 ';
                 }else{
-                    echo 'beendet </div>';
+                    echo 'Beendet </div>';
                     echo '
                     <script type="text/javascript">
                     setTimeout(function() {
