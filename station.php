@@ -54,9 +54,13 @@ if(isset($_GET['antwort'])){
                 $count = $row['count'];
             
                 if ($count > 0) {
-                    // Eintrag aktualisieren
-                    $updateSql = "UPDATE Antworten SET Antwort = '$antwort', Korrektur = 'Ausstehend', Punkte = -1 WHERE Gruppe = '$groupname' AND Station = '$stationname' AND IDFrage = $fragenid";
-                    mysqli_query($conn, $updateSql);
+                    $checkSql = "SELECT Antwort FROM Antworten WHERE Gruppe = '$groupname' AND Station = '$stationname' AND IDFrage = $fragenid";
+                    $result = mysqli_query($conn, $checkSql);
+                    $row = mysqli_fetch_assoc($result);
+                    if ($row['Antwort'] != $antwort) {
+                        $updateSql = "UPDATE Antworten SET Antwort = '$antwort', Korrektur = 'Ausstehend', Punkte = -1 WHERE Gruppe = '$groupname' AND Station = '$stationname' AND IDFrage = $fragenid";
+                        mysqli_query($conn, $updateSql);
+                    }
                 } else {
                     // Neuen Eintrag hinzufügen
                     $insertSql = "INSERT INTO Antworten (Gruppe, Station, IDFrage, Antwort, Korrektur, Punkte) VALUES ('$groupname', '$stationname', $fragenid, '$antwort', 'Ausstehend', -1)";

@@ -341,21 +341,23 @@ function dbconnect(){
                 $erg = sqlbefehl($conn, "SELECT * FROM ". removetagsbyuml(removeleerzeichen($stationtable)). " WHERE ID = $idfrage");
                 if($erg->num_rows){
                     $stationtable = $erg -> fetch_assoc();  
-                    if($stationtable["Fragentyp"] == "frage"){
-                        $musterantwortdb = $stationtable["Antwort"];
-                        $musterantwortspilt = explode(" *oder* ", $musterantwortdb);
-                        $antwort = $antwortentable["Antwort"];
-                        if (in_array($antwort, $musterantwortspilt)) {
-                            if(isset($_SESSION['gruppenname'])){
-                                $groupname = $_SESSION['gruppenname'];
-                            }else {
-                                $groupname = "Error #401";
+                    if ($antwortentable["Korrektur"] == "Ausstehend"){
+                        if($stationtable["Fragentyp"] == "frage"){
+                            $musterantwortdb = $stationtable["Antwort"];
+                            $musterantwortspilt = explode(" *oder* ", $musterantwortdb);
+                            $antwort = $antwortentable["Antwort"];
+                            if (in_array($antwort, $musterantwortspilt)) {
+                                if(isset($_SESSION['gruppenname'])){
+                                    $groupname = $_SESSION['gruppenname'];
+                                }else {
+                                    $groupname = "Error #401";
+                                }
+                                $antwortid = $antwortentable["ID"];
+                                $stationname = $antwortentable["Station"];
+                                $maxpunkte = $stationtable["Punkte"];
+                                $updateSql = "UPDATE Antworten SET Korrektur = 'Automatisch erfolgt', Punkte = $maxpunkte WHERE Gruppe = '$groupname' AND Station = '$stationname' AND ID = $antwortid";
+                                sqlbefehl($conn, $updateSql);
                             }
-                            $antwortid = $antwortentable["ID"];
-                            $stationname = $antwortentable["Station"];
-                            $maxpunkte = $stationtable["Punkte"];
-                            $updateSql = "UPDATE Antworten SET Korrektur = 'Automatisch erfolgt', Punkte = $maxpunkte WHERE Gruppe = '$groupname' AND Station = '$stationname' AND ID = $antwortid";
-                            sqlbefehl($conn, $updateSql);
                         }
                     }
                 }
