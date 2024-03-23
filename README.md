@@ -6,7 +6,7 @@ Aktuelle Features sind:
 - Karte und Sidebar zur Auswahl von Aufgaben in der Nähe (innerhalb eines Radius von 75 Metern) am eigenen Standort.
 - Antwortseite zur Beantwortung der Fragen
 
-Es gibt eine automatische Auswertung. Dazu kann bei der Musterlösung Antwortmöglichkeit1 *oder* Antwortmöglichkeit2 *oder* ... angegeben werden. So können der automatischen Korrekturhilfe mehrere Antwortmöglichkeiten angeboten werden.
+Es gibt eine automatische Auswertung. Dazu kann bei der Musterlösung Antwortmöglichkeit1 ***oder*** Antwortmöglichkeit2 ***oder*** ... angegeben werden. So können der automatischen Korrekturhilfe mehrere Antwortmöglichkeiten angeboten werden.
 
 WICHTIG:
 
