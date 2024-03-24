@@ -311,7 +311,7 @@ function dbconnect(){
             echo '        <input type="text" name="gruppenname" placeholder="Katzen" required></br>';
             echo '        <input type="password" name="passwort" placeholder="" required></br></br>';
             echo '        <input type="submit" value="Anmelden">';
-            echo '        <p> Du hast keinen account? Rede bitte mit einem Moderator!</p>';
+            echo '        <p> Du hast keinen Account? Melde dich bitte bei einem Moderator!</p>';
             echo '      </form>';
             echo '  </div>';
             echo '</div>';
@@ -371,5 +371,25 @@ function dbconnect(){
             }
         }
     }
+// Beispielzeit setzen
+$beispielzeit = "2024-03-24 07:30:00";
+    function vergleicheZeiten($beispielzeit) {
+        // Serverzeit auslesen
+        $serverzeit = strtotime(date("Y-m-d H:i:s"));
+    
+        // Beispielzeit in UNIX-Zeit umwandeln
+        $beispielzeit_unix = strtotime($beispielzeit);
+    
+        // Vergleiche die Zeiten
+        if ($serverzeit >= $beispielzeit_unix) {
+            $ende=true;
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+
+
     
 ?>
