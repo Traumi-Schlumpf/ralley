@@ -371,5 +371,25 @@ function dbconnect(){
             }
         }
     }
+// Beispielzeit setzen
+$beispielzeit = "2024-03-24 07:30:00";
+    function vergleicheZeiten($beispielzeit) {
+        // Serverzeit auslesen
+        $serverzeit = strtotime(date("Y-m-d H:i:s"));
+    
+        // Beispielzeit in UNIX-Zeit umwandeln
+        $beispielzeit_unix = strtotime($beispielzeit);
+    
+        // Vergleiche die Zeiten
+        if ($serverzeit >= $beispielzeit_unix) {
+            $ende=true;
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+
+
     
 ?>
