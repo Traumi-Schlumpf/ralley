@@ -372,17 +372,16 @@ function dbconnect(){
         }
     }
 // Beispielzeit setzen
-$beispielzeit = "2024-03-24 07:30:00";
-    function vergleicheZeiten($beispielzeit) {
+$endzeit = "2024-03-24 07:30:00";
+    function vergleicheZeiten($endzeit) {
         // Serverzeit auslesen
         $serverzeit = strtotime(date("Y-m-d H:i:s"));
     
         // Beispielzeit in UNIX-Zeit umwandeln
-        $beispielzeit_unix = strtotime($beispielzeit);
+        $endzeit_unix = strtotime($endzeit);
     
         // Vergleiche die Zeiten
-        if ($serverzeit >= $beispielzeit_unix) {
-            $ende=true;
+        if ($serverzeit >= $endzeit_unix) {
             return true;
         } else {
             return false;

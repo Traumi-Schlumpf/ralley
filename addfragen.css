@@ -14,6 +14,10 @@
     text-align: center;
 }
 
+h2 {
+    text-align: center;
+}
+
 #frage,
 #antwort {
     background-color: rgb(39, 39, 39);
@@ -47,22 +51,23 @@
     text-align: center;
 }
 
-.fragentabelle table {
+table {
     width: 100%;
     table-layout: fixed;
     border-collapse: collapse;
     overflow: hidden;
     border-radius: 10px;
+    word-wrap: break-word;
 }
 
-.fragentabelle th,
-.fragentabelle td {
+th,
+td {
     border: 0.5px solid #2e2e2e;
     padding: 8px;
     text-align: left;
 }
 
-.fragentabelle th {
+th {
     background-color: #3f3f3f;
     color: white;
 }

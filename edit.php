@@ -13,10 +13,11 @@ $conn = dbconnect();
 <body>
     
 <?php
+anmelden($conn);
 // Überprüfen, ob die GET-Variablen gesetzt sind
 if(angemeldet($conn) == "Admin" || angemeldet($conn) == "Moderator"){
     if(isset($_GET['tabelle']) && isset($_GET['id'])) {
-        $tabelle = $_GET['tabelle'];
+        $tabelle = removetagsbyuml(removeleerzeichen($_GET['tabelle']));
         $id = $_GET['id'];
         if($id != 1 && $tabelle != "Gruppe"){
             if ($tabelle == "Gruppe" && angemeldet($conn) != "Admin"){
@@ -25,7 +26,7 @@ if(angemeldet($conn) == "Admin" || angemeldet($conn) == "Moderator"){
                 die();
             }
             // SQL-Abfrage vorbereiten
-            $sql = "SELECT * FROM $tabelle WHERE id = ?";
+            $sql = "SELECT * FROM $tabelle WHERE ID = ?";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("i", $id);
             $stmt->execute();
@@ -66,6 +67,8 @@ if(angemeldet($conn) == "Admin" || angemeldet($conn) == "Moderator"){
     } else {
         echo "GET-Variablen 'tabelle' oder 'id' nicht gesetzt.";
     }
+}else {
+    echo "anmeldung ungültig";
 }
 ?>
 </body>

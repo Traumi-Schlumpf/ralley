@@ -1,3 +1,8 @@
+<?php
+include('module.php');
+$conn = dbconnect();
+$ende = vergleicheZeiten($endzeit);
+?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -8,15 +13,11 @@
     <title>Auswertungsseite</title>
 </head>
 <body>
-<?php
-$ende=true;
-include('module.php');
-$conn = dbconnect();
-$ende = vergleicheZeiten($beispielzeit);
 
+<?php
 if ($ende) {
     // Zeige eine andere Seite basierend auf der Variable $ende an
-    echo "<h2>Auswertung der Korrekturen pro Gruppe</h2>";
+    echo "<h1>Auswertung</h1>";
     
     echo "<table>";
     echo "<tr>";

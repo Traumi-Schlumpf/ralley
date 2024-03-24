@@ -1,6 +1,6 @@
 <?php
 include('module.php');
-$ende = vergleicheZeiten($beispielzeit);
+$ende = vergleicheZeiten($endzeit);
 // Wenn $ende true ist, führe den Redirect durch
 if ($ende) {
     header("Location: auswertung.php");
@@ -62,7 +62,7 @@ httpsredirect();
                 var watchId = navigator.geolocation.watchPosition(updateUserLocation, handleLocationError, options);
             }
         } else {
-            alert("Geolocation wird von deinem Browser nicht unterstützt. Du kannst von diesem Gerät nicht an der Ralley teilnehmen.");
+            alert("Geolocation is not supported by this browser.");
         }
 
         function showPosition(position) {
