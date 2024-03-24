@@ -21,7 +21,7 @@ if(angemeldet($conn) != "Admin" && angemeldet($conn) != "Moderator"){
 <?php
 // Überprüfen, ob das Formular gesendet wurde
 if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['tabelle']) && isset($_GET['id'])) {
-    $tabelle = $_GET['tabelle'];
+    $tabelle = removetagsbyuml(removeleerzeichen($_GET['tabelle']));
     $id = $_GET['id'];
     $updateData = [];
 
